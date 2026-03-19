@@ -1,0 +1,337 @@
+/* --- VARIÁVEIS E RESET --- */
+:root {
+    --coffee-dark: #2c1e1a;
+    --coffee-medium: #6f4e37;
+    --coffee-light: #f5f5f5;
+    --accent: #d4a373;
+    --text-white: #ffffff;
+    --text-dark: #333333;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- CABEÇALHO --- */
+header {
+    background: rgba(44, 30, 26, 0.95);
+    color: var(--text-white);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 60px; /* Ajuste para o tamanho da sua logo vintage */
+    width: auto;
+    border-radius: 50%; /* Mantém o formato circular da logo real */
+    border: 3px solid var(--accent);
+}
+
+.brand {
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+}
+
+nav { display: flex; gap: 20px; }
+nav a { font-weight: 500; opacity: 0.8; }
+nav a:hover { opacity: 1; color: var(--accent); }
+
+.cart-wrapper {
+    cursor: pointer;
+    background: var(--accent);
+    padding: 8px 18px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transition);
+}
+
+.cart-wrapper:hover { transform: scale(1.05); }
+
+#cart-count { font-weight: bold; }
+
+/* --- SEÇÃO HERO --- */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    text-align: center;
+    margin-top: 80px; /* Para não ficar atrás do header fixo */
+}
+
+.hero-content h1 { font-size: 3.5rem; margin-bottom: 10px; font-family: 'Georgia', serif; }
+.hero-content p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0.9; }
+.hero-btns { display: flex; gap: 15px; justify-content: center; }
+
+/* --- COMPONENTES GENÉRICOS --- */
+.container { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+.bg-light { background-color: var(--coffee-light); max-width: 100%; }
+.section-title { text-align: center; font-size: 2.5rem; color: var(--coffee-dark); font-family: 'Georgia', serif; margin-bottom: 10px; }
+.section-subtitle { text-align: center; color: #666; margin-bottom: 50px; }
+
+.grid { display: grid; gap: 30px; }
+.cardapio-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.graos-grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+
+/* --- ESTILO DOS CARDS --- */
+.card {
+    background: var(--text-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+
+.card-img-container { height: 220px; overflow: hidden; }
+.card-img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-info { padding: 25px; text-align: center; }
+.card-info h3 { font-size: 1.4rem; color: var(--coffee-dark); margin-bottom: 8px; }
+.card-info p { font-size: 0.95rem; color: #555; margin-bottom: 15px; min-height: 40px; }
+.price { display: block; font-size: 1.5rem; font-weight: bold; color: var(--coffee-medium); margin-bottom: 20px; }
+
+/* --- BOTÕES --- */
+.btn {
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-primary { background: var(--coffee-medium); color: var(--text-white); }
+.btn-primary:hover { background: var(--coffee-dark); }
+
+.btn-secondary { background: transparent; border: 2px solid var(--text-white); color: var(--text-white); }
+.btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+.btn-add { background: var(--accent); color: var(--coffee-dark); font-size: 0.8rem; padding: 10px 20px; }
+.btn-add:hover { background: var(--coffee-dark); color: var(--text-white); }
+
+/* --- CARROSSEL DE IMAGENS --- */
+.carousel-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 10;
+}
+
+.carousel-prev { left: 10px; border-radius: 0 5px 5px 0; }
+.carousel-next { right: 10px; border-radius: 5px 0 0 5px; }
+
+/* --- MODAL DO CARRINHO --- */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background: var(--text-white);
+    margin: 10% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 10px;
+    position: relative;
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #aaa;
+}
+.close-modal:hover { color: var(--text-dark); }
+
+#cart-items-list { margin: 20px 0; border-top: 1px solid #eee; padding-top: 10px; }
+#cart-items-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-summary {
+    text-align: right;
+    font-size: 1.3rem;
+    margin-top: 15px;
+    color: var(--coffee-dark);
+}
+
+.modal-btns { display: flex; gap: 10px; margin-top: 25px; }
+.modal-btns .btn { width: 100%; }
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    nav { display: none; } /* Menu hamburguer seria ideal, mas simplifiquei */
+}
+
+.checkout-form label { display: block; margin-top: 10px; font-weight: bold; }
+.checkout-form select, .checkout-form input { width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; }
+
+/* ============================================================
+   Define as Variáveis de Cor (Tema Claro - Padrão)
+   ============================================================ */
+:root {
+    --bg-body: #fafafa;          /* Fundo da página */
+    --bg-card: #ffffff;          /* Fundo dos cards */
+    --bg-header: #2c1e1a;        /* Fundo do cabeçalho */
+    --text-main: #333333;        /* Cor do texto principal */
+    --text-white: #ffffff;       /* Texto sobre fundos escuros */
+    --coffee-dark: #2c1e1a;
+    --coffee-medium: #6f4e37;
+    --coffee-light: #f5f5f5;
+    --accent: #d4a373;           /* Cor de destaque */
+    --border-color: #eee;        /* Linhas e bordas */
+}
+
+/* ============================================================
+   Define as Cores para o Tema Escuro (Dark Mode)
+   Estas cores substituem as padrão quando a classe 'dark-mode'
+   está ativa no <body>
+   ============================================================ */
+body.dark-mode {
+    --bg-body: #121212;          /* Preto quase total */
+    --bg-card: #1e1e1e;          /* Cinza escuro */
+    --bg-header: #000000;        /* Preto puro no topo */
+    --text-main: #e0e0e0;        /* Branco acinzentado */
+    --accent: #e6b382;           /* Destaque ligeiramente mais claro */
+    --border-color: #333;        /* Linhas escuras */
+    --coffee-medium: #8b6248;    /* Marrom mais suave */
+}
+
+/* ============================================================
+   Ajuste Básico para o body usar as variáveis
+   ============================================================ */
+body {
+    background-color: var(--bg-body); /* Usando a variável */
+    color: var(--text-main);           /* Usando a variável */
+    font-family: sans-serif;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s; /* Animação suave */
+}
+
+/* Garanta que seus cards e seções usem as variáveis */
+.card {
+    background-color: var(--bg-card); /* Usando a variável */
+    border: 1px solid var(--border-color); /* Usando a variável */
+    /* ... resto do seu estilo ... */
+}
+
+header {
+    background-color: var(--bg-header); /* Usando a variável */
+    /* ... resto do seu estilo ... */
+}
+
+/* ============================================================
+   ESTILOS DO BOTÃO DE ALTERNÂNCIA DE TEMA
+   ============================================================ */
+.theme-btn {
+    background: none;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 15px; /* Espaço do logo */
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    background-color: rgba(212, 163, 115, 0.2); /* Fundo leve no hover */
+}
+
+/* Quando estiver no modo escuro, muda o estilo do botão */
+body.dark-mode .theme-btn {
+    border-color: var(--text-white);
+}
