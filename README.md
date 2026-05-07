@@ -1,6 +1,8 @@
 # O Rei da Pizza - Asa Norte
 
-Site institucional e cardápio digital desenvolvido para a pizzaria **O Rei da Pizza - Asa Norte**, com foco em apresentação moderna, navegação simples, acessibilidade, semântica HTML e boa experiência para clientes em dispositivos móveis, tablets e desktop.
+Site Original : <a href="https://oreidapizzabsb.ola.click/">O rei da pizza</a>
+
+Melhoria do site institucional e cardápio digital desenvolvido para a pizzaria **O Rei da Pizza - Asa Norte**, com foco em apresentação moderna, navegação simples, acessibilidade, semântica HTML e boa experiência para clientes em dispositivos móveis, tablets e desktop.
 
 O projeto foi desenvolvido em **HTML, CSS e JavaScript puro**, sem dependência de frameworks, com a página inicial separada da página de cardápio.
 
@@ -287,11 +289,12 @@ Projeto desenvolvido para fins de estudo, modernização visual e criação de c
 
 ---
 
-## Licença
-
-Este projeto é de uso privado e institucional da pizzaria **O Rei da Pizza - Asa Norte**.
-
-As imagens, nome da marca e identidade visual pertencem aos seus respectivos responsáveis.
+## Fontes
+Foi retirado imagens do site original (https://oreidapizzabsb.ola.click/)
+icones retirados devicon.dev
+No projeto em questão foi feito o uso das seguintes AIs
+- Chatgpt
+- claude
 
 ## Participantes
 - Vinícius Alves da Costa Silva 22508475
